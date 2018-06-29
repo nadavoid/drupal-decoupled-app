@@ -1,0 +1,4 @@
+name: Amazee Score
+type: module
+description: Provides a token for a webform score
+core: 8.x

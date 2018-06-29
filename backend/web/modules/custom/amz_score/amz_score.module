@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_token_info().
+ */
+function amz_score_token_info() {
+  return [
+    'tokens' => [
+      'webform_submission' => [
+        'score' => [
+          'name' => t('Score of submitted webform'),
+        ]
+      ]
+    ]
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function amz_score_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $token_service = \Drupal::token();
+  if ($type !== 'webform_submission') {
+    return;
+  }
+
+  /** @var \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager */
+  $element_manager = \Drupal::service('plugin.manager.webform.element');
+
+  /** @var \Drupal\webform\WebformSubmissionStorageInterface $submission_storage */
+  $submission_storage = \Drupal::entityTypeManager()->getStorage('webform_submission');
+
+  // Adding webform submission, webform, source entity to bubbleable meta.
+  // This reduces code duplication and easier to track.
+  /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+  $webform_submission = $data['webform_submission'];
+  $bubbleable_metadata->addCacheableDependency($webform_submission);
+
+  // @todo Properly check for presence of submitted data.
+  if (empty($webform_submission->data)) {
+    $replacements['[webform_submission:score]'] = 'Pending';
+  }
+  else {
+    // @todo Loop through submitted data and SUM all yes/no questions.
+    $replacements['[webform_submission:score]'] = 'You win!';
+  }
+
+  return $replacements;
+}
