@@ -1,0 +1,18 @@
+uuid: 3b080983-5013-40a3-846e-f3b2fecc9a31
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.survey
+  module:
+    - user
+id: node.survey.teaser
+targetEntityType: node
+bundle: survey
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,36 @@
+uuid: bf983681-790f-4082-982b-f74cc1415181
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey.field_description
+    - field.field.node.survey.webform
+    - node.type.survey
+  module:
+    - text
+    - user
+    - webform
+id: node.survey.default
+targetEntityType: node
+bundle: survey
+mode: default
+content:
+  field_description:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+  webform:
+    weight: 102
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+hidden: {  }

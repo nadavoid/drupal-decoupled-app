@@ -1,4 +1,7 @@
 module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
+  amz_score: 0
   automated_cron: 0
   basic_auth: 0
   block: 0
@@ -10,6 +13,7 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  devel_generate: 0
   editor: 0
   field: 0
   field_ui: 0
@@ -35,9 +39,13 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_node: 0
+  webform_ui: 0
   menu_link_content: 1
   views: 10
   config_installer: 1000

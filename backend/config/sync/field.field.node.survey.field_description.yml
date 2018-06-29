@@ -1,0 +1,21 @@
+uuid: 3ac7f8fb-fa2b-49b7-844d-8901e375151d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.survey
+  module:
+    - text
+id: node.survey.field_description
+field_name: field_description
+entity_type: node
+bundle: survey
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
